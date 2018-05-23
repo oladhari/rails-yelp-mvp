@@ -1,7 +1,15 @@
 <div class="container">
+  <h1>Hello to Yelp</h1>
+  <%= link_to "create new restaurant", new_restaurant_path(@restaurant) %>
   <ul class="list_unstyled">
     <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant %></li>
+    <li><%= link_to restaurant.name, restaurant_path(restaurant) %>      |  <%= link_to "edit", edit_restaurant_path(restaurant)%> | <%= link_to "Delete", restaurant_path(restaurant),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></li>
+      <%= link_to "write a review", new_restaurant_review_path(restaurant) %>
     <%end%>
+
   </ul>
 </div>
+
+
